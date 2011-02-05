@@ -36,7 +36,24 @@ Usage
             scrob.stop()
             
 
+OS X specific Problems
+----------------------
+Under OS X it's possible that easy_install will not find a version of pylibpcap. Use can install one with the help of [MacPorts](http://www.macports.org/). Attention: You have to use the python2.6 binary in `/opt/local/bin/` to be able to import `pcap`.
+
+Spobbilog
+---------
+It's a very simple and basic example for scrobbify usage. It writes the songs you listen to in Spotify to a file (`~/.spobbilog`). The format of the file is
+
+    timestamp; title; artist; album \n
+
+The textfile can be used as a very simple interface to other applications. For example you can get the last played title with the following shell command:
+
+    tail -n1 ~/.spobbilog | cut -f 2 -d ';'
+
+Adjust the "2" to get other attributes of the last song.
+
 Feedback
 --------
 I'm fairly certain the code is sub-optimal right now, so feel free to leave me some feedback, via [email](http://scr.im/stevie) or even [twitter](http://twitter.com/steveWINton). :)
 
+Author of the spobbilog-example: [toabi](http://twitter.com/toabi).

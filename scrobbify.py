@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import cgi
+import urlparse
 import pcap
 import socket
 import struct
@@ -76,14 +76,18 @@ class Scrobbify(Thread):
         if not (s.find('POST /np_1.2') > -1 and s.find('User-Agent: Spotify') > -1):
             return
          
-        self.now_playing = cgi.parse_qs(s.splitlines()[-1])
+        self.now_playing = urlparse.parse_qs(s.splitlines()[-1])
         self.callback(self.now_playing, s)
     
 
 
 if __name__ == "__main__":
     def cb(now_playing, data):
-        sys.stdout.write("Now playing: '%s' by '%s'.\n" % (now_playing['t'][0], now_playing['a'][0]))
+        sys.stdout.write("Title  (t): %s \n" % now_playing['t'][0])
+        sys.stdout.write("Artist (a): %s \n" % now_playing['a'][0])
+        sys.stdout.write("Album  (b): %s \n" % now_playing['b'][0])
+        sys.stdout.write("Length (l): %s \n" % now_playing['l'][0])
+        sys.stdout.write("Track  (n): %s \n" % now_playing['n'][0])
         sys.stdout.flush()
     scrob = Scrobbify(cb, interface='en1')
     scrob.start()
