@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleGetInfoString</key>
+	<string>last Spotify Song</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.adiumx.spobbilog.scripts</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>CFBundleName</key>
+	<string>spobbilog</string>
+	<key>CFBundlePackageType</key>
+	<string>AdIM</string>
+	<key>Scripts</key>
+	<array>
+		<dict>
+			<key>File</key>
+			<string>getSong</string>
+			<key>Keyword</key>
+			<string>/spotify</string>
+			<key>PrefixOnly</key>
+			<true/>
+			<key>Title</key>
+			<string>last Spotify song (historical)</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>getSong</string>
+			<key>Keyword</key>
+			<string>%_spotify</string>
+			<key>PrefixOnly</key>
+			<true/>
+			<key>Title</key>
+			<string>last Spotify song</string>
+		</dict>
+	</array>
+	<key>Set</key>
+	<string>Spotify</string>
+</dict>
+</plist>

@@ -52,8 +52,13 @@ The textfile can be used as a very simple interface to other applications. For e
 
 Adjust the "2" to get other attributes of the last song.
 
+Adium Script
+------------
+So you now can log your songs. Let's use that log for some useful stuff. Insert the last played song ito a message by starting your message with `/spotify` or `%_spotify`.
+Make sure to have Spobbilog running and last.fm posting enabled or the thing won't update.
+
 Feedback
 --------
 I'm fairly certain the code is sub-optimal right now, so feel free to leave me some feedback, via [email](http://scr.im/stevie) or even [twitter](http://twitter.com/steveWINton). :)
 
-Author of the spobbilog-example: [toabi](http://twitter.com/toabi).
+Author of the spobbilog-example and Adium Script: [toabi](http://twitter.com/toabi).
