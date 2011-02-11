@@ -1,23 +1,18 @@
-scrobbify - A Python library providing real-time 'now playing notifications' for Spotify
-=========================================================================================
+# scrobbify + stuff : Tools to work around a missing API
 
-Overview
---------
+## Overview
+
 There's a notable lack of [AppleScript support in the Spotify player](http://getsatisfaction.com/spotify/topics/spotify_applescript_dictionary), and I (along [with many others](http://getsatisfaction.com/spotify/topics/spotify_applescript_dictionary)) would like to do interesting things with Spotify. Things like, updating my [Adium](http://adium.im/) status with what I'm listening to on Spotify, sticking what's now playing in the office on an LED message panel, and doing other interesting mashups.
 
 So, here's a workaround, using Spotify's built-in [scrobbling](http://www.last.fm/help/faq?category=Scrobbling) feature. What I'm attempting to do, is capture the network packets that are sent from the Spotify player to Last.fm's [API](http://www.last.fm/api/intro), and extract what's now playing by inspecting the HTTP request.
 
 Yep, it's all pretty backwards, but I think it's the only viable workaround, until either Spotify adds an AppleScript dictionary, or Last.fm provides some kind of real-time webhook interface.
 
-Usage
------
-1. Install scrobbify from the Python Package Index, e.g. using easy_install:
+## using scrobbify
 
-        $ easy_install scrobbify
+1. Be sure to [enable scrobbling to last.fm](http://www.spotify.com/uk/blog/archives/2008/12/18/spotify-scrobbles/) in your Spotify player preferences.
 
-2. Be sure to [enable scrobbling to last.fm](http://www.spotify.com/uk/blog/archives/2008/12/18/spotify-scrobbles/) in your Spotify player preferences.
-
-3. Use scrobbify like so:
+2. In your custom scripts, use scrobbify like this:
 
         import scrobbify, sys
         
@@ -35,13 +30,21 @@ Usage
         except (KeyboardInterrupt, SystemExit):
             scrob.stop()
             
+The following meta-data is avaliable in the `now_playing` variable):
 
-OS X specific Problems
-----------------------
-Under OS X it's possible that easy_install will not find a version of pylibpcap. Use can install one with the help of [MacPorts](http://www.macports.org/). Attention: You have to use the python2.6 binary in `/opt/local/bin/` to be able to import `pcap`.
+* Title  [t]
+* Artist [a]
+* Album  [b]
+* Length [l] in seconds
+* Track  [n] of the album
 
-Spobbilog
----------
+### OS X: Python pcap
+Under OS X it's possible that easy_install will not find a version of pylibpcap. Use can install one with the help of [MacPorts](http://www.macports.org/). Attention: You have to use the python2.6 binary in `/opt/local/bin/` to be able to import `pcap` which is required by scrobbify.
+
+## Example applications
+Here are some example applications using the scrobbify library to do things™.
+
+### Spobbilog
 It's a very simple and basic example for scrobbify usage. It writes the songs you listen to in Spotify to a file (`~/.spobbilog`). The format of the file is
 
     timestamp; title; artist; album \n
@@ -52,13 +55,11 @@ The textfile can be used as a very simple interface to other applications. For e
 
 Adjust the "2" to get other attributes of the last song.
 
-Adium Script
-------------
-So you now can log your songs. Let's use that log for some useful stuff. Insert the last played song ito a message by starting your message with `/spotify` or `%_spotify`.
-Make sure to have Spobbilog running and last.fm posting enabled or the thing won't update.
+### Adium Script
+With Spobbilog you have a history and the currently playing song. Let's use that log for some useful stuff. Insert the last played song into a message, by starting your message with `/spotify` or `%_spotify`.
+Make sure to have Spobbilog running and Last.fm posting enabled.
 
-Feedback
---------
+## Feedback
 I'm fairly certain the code is sub-optimal right now, so feel free to leave me some feedback, via [email](http://scr.im/stevie) or even [twitter](http://twitter.com/steveWINton). :)
 
-Author of the spobbilog-example and Adium Script: [toabi](http://twitter.com/toabi).
+Author of the example apps: [toabi](http://twitter.com/toabi).

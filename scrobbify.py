@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+# srobbify
+# Python library to parse last.fm posts from Spotify to provide a pseudo-API to
+# the currently playing song.
+# written by http://twitter.com/steveWINton
+
 import urlparse
 import pcap
 import socket
@@ -89,7 +94,7 @@ if __name__ == "__main__":
         sys.stdout.write("Length (l): %s \n" % now_playing['l'][0])
         sys.stdout.write("Track  (n): %s \n" % now_playing['n'][0])
         sys.stdout.flush()
-    scrob = Scrobbify(cb, interface='en1')
+    scrob = Scrobbify(cb, interface='en1') #you may have to adjust the interface to listen on
     scrob.start()
     try:
         while True:
