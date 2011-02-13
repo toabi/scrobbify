@@ -59,6 +59,10 @@ Adjust the "2" to get other attributes of the last song.
 With Spobbilog you have a history and the currently playing song. Let's use that log for some useful stuff. Insert the last played song into a message, by starting your message with `/spotify` or `%_spotify`.
 Make sure to have Spobbilog running and Last.fm posting enabled.
 
+### update Ladiocast metadata
+Similar to the Adium Script you can run the `updateLadioCast` Apple Script which reads the 
+`.spobbilog` file every 15 seconds and then updates the [LadioCast](http://blog.kawauso.com/kawauso/macladiocast/) metadata. 
+
 ## Feedback
 I'm fairly certain the code is sub-optimal right now, so feel free to leave me some feedback, via [email](http://scr.im/stevie) or even [twitter](http://twitter.com/steveWINton). :)
 
