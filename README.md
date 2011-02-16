@@ -1,4 +1,4 @@
-# scrobbify and stuff : Tools to work around a missing API
+# scrobbify + stuff : Tools to work around a missing API
 
 ## Overview
 
