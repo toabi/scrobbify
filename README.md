@@ -1,4 +1,10 @@
-# scrobbify + stuff : Tools to work around a missing API
+# Depreacted! There's now an API.
+
+Spotify implemented AppleScript support! Jey.
+
+I build a plugin for Adium. You get get it there: <http://www.adiumxtras.com/index.php?a=xtras&xtra_id=8044>
+
+## scrobbify + stuff : Tools to work around a missing API
 
 ## Overview
 
